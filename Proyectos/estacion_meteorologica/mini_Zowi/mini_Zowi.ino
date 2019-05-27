@@ -1,14 +1,11 @@
-// Sweep
-// by BARRAGAN <http://barraganstudio.com> 
-// This example code is in the public domain.
-
-
 #include <Servo.h> 
  
-Servo pieIzq;
-Servo caderaIzq;
-Servo pieDere;
-Servo caderaDere;
+
+
+Servo pieIzq;      //0º lavantar pie hacia exterior - 90º pie horizontal - 180º levantar pie hacia interior
+Servo pieDere;     //0º levantar pie hacia interior - 90º pie horizontal - 180º levantar pie hacia exterior
+Servo caderaIzq;    //0º rotar hacia atras - 90º posicion normal - 180º rotar hacia adelante
+Servo caderaDere;  //0º rotar hacia adelante - 90º posicion normal - 180º rotar hacia atras
  
  
  
@@ -26,34 +23,64 @@ void setup()
  
 void loop() 
 { 
- reposo();  
- delay(500); 
- piernaDere() ;
+ 
+ 
+ //reposo();  
+// delay(500);
+  
+ sobrePiernaDere() ;
  delay(500);
- piernaIzq();
+ sobrePiernaIzq();
  delay(500);
-} 
-
-void piernaDere()
-{
-pieDere.write(45);
-caderaDere.write(30);
-delay(15);
 }
 
-void piernaIzq()
+void sobrePiernaDere()
 {
-pieIzq.write(45);
-caderaIzq.write(30);
-delay(15);
+    //quedarse a la pata coja
+pieIzq.write(0);
+caderaIzq.write(90);
+delay(100);
+pieDere.write(180 - 180);
+delay(100);
+  //girar cuerpo
+caderaDere.write(180 - 135);
+delay(100);
+  //volver a poner los dos pies en el suelo
+pieIzq.write(90);
+delay(500);
+pieDere.write(180 - 90);
+//delay(1000);
+  //volver a la posicion de reposo
+//caderaDere.write(180 - 90);
+//delay(500);
+}
+
+void sobrePiernaIzq()
+{
+  //quedarse a la pata coja
+pieDere.write(180 - 0);
+caderaDere.write(180 - 90);
+delay(100);
+pieIzq.write(150);
+delay(100);
+  //girar cuerpo
+caderaIzq.write(135);
+delay(100);
+  //volver a poner los dos pies en el suelo
+pieDere.write(180 - 90);
+delay(500);
+pieIzq.write(90);
+
+//delay(1000);
+//caderaIzq.write(90);
 }
 
 
 void reposo()
 {
-  pieDere.write(90);
+  pieDere.write(180 - 90);
   pieIzq.write(90);
-  caderaDere.write(90);
+  caderaDere.write(180 - 90);
   caderaIzq.write(90);
 }
 
