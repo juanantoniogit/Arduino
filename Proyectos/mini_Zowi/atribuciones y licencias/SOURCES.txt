@@ -1,0 +1,6 @@
+Sources for Otto DIY build your own robot
+
+BOB (http://www.thingiverse.com/thing:43708)
+ZOWI (http://www.thingiverse.com/thing:747010)
+Tito biped robot (http://www.thingiverse.com/thing:1378605)
+Bobwi - Cheap, dancing robot. (with BT and easy to print) (http://www.thingiverse.com/thing:1274838)
